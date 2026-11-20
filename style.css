@@ -1,0 +1,51 @@
+/* Общие цвета, размеры и правила расчёта ширины элементов. */
+:root {
+    font-family: Arial, sans-serif;
+    color: #1e293b;
+    background: #f1f5f9;
+    line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 36px 20px; }
+h1 { margin: 0; font-size: clamp(26px, 4vw, 38px); }
+h2 { margin: 0 0 12px; font-size: 23px; }
+.subtitle { color: #64748b; margin: 6px 0 24px; }
+
+/* Панель управления переносится на новую строку на узких экранах. */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.search-field { flex: 1 1 240px; }
+label { display: block; font-weight: 600; margin-bottom: 6px; }
+input, button { font: inherit; border-radius: 8px; padding: 10px 14px; }
+input { width: 100%; border: 1px solid #94a3b8; background: white; }
+button { border: 0; background: #2459a6; color: white; cursor: pointer; font-weight: 600; }
+button:hover:not(:disabled) { background: #194580; }
+button:disabled, input:disabled { opacity: 0.55; cursor: not-allowed; }
+button:focus-visible, input:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
+
+/* Карточки автоматически образуют столько колонок, сколько помещается. */
+.panel { background: white; border-radius: 14px; padding: 22px; margin-bottom: 22px; box-shadow: 0 3px 12px #1e293b0d; }
+.user-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; }
+.card { border: 1px solid #dbe3ed; border-radius: 10px; padding: 16px; background: #f8fafc; overflow-wrap: anywhere; }
+.card h3 { margin: 0 0 10px; font-size: 18px; }
+.card p { margin: 5px 0; }
+.card button { margin-top: 12px; width: 100%; }
+.user-card { display: flex; flex-direction: column; }
+.user-card button { margin-top: auto; }
+.user-card p:last-of-type { margin-bottom: 16px; }
+.post-list { display: grid; gap: 12px; }
+.status { color: #475569; margin: 0 0 16px; }
+.status.error { color: #b91c1c; font-weight: 600; }
+
+@media (max-width: 520px) {
+    .container { padding: 20px 12px; }
+    .panel { padding: 16px; }
+    .controls > button { width: 100%; }
+}

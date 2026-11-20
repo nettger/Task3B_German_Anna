@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Справочник пользователей</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Справочник пользователей</h1>
+        </header>
+
+        <!-- Управление загрузкой и фильтрацией пользователей. -->
+        <section class="controls" aria-label="Управление справочником">
+            <button id="load-users" type="button">Загрузить пользователей</button>
+            <div class="search-field">
+                <label for="search">Поиск по имени</label>
+                <input id="search" type="search" placeholder="Например, Leanne" disabled>
+            </div>
+        </section>
+
+        <!-- Состояние запроса сообщается отдельно от списка карточек. -->
+        <section class="panel" aria-labelledby="users-title">
+            <h2 id="users-title">Пользователи</h2>
+            <p id="users-status" class="status" role="status">Нажмите кнопку загрузки, чтобы начать.</p>
+            <div id="users" class="user-grid"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="posts-title">
+            <h2 id="posts-title">Публикации</h2>
+            <p id="posts-status" class="status" role="status">Выберите пользователя для просмотра публикаций.</p>
+            <div id="posts" class="post-list"></div>
+        </section>
+    </main>
+</body>
+</html>
